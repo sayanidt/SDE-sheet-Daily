@@ -1,17 +1,14 @@
 class Solution {
     public int repeatedNTimes(int[] nums) {
-        Random rand= new Random();
-        int n= nums.length;
+        HashSet<Integer> set= new HashSet<>();
 
-        while(true) {
-            int i= rand.nextInt(n);
-            int j= rand.nextInt(n);
-
-            if(i!=j && nums[i]== nums[j]){
-                return nums[i];
+        for(int num: nums){
+            if(set.contains(num)) {
+                return num;
             }
+            set.add(num);
         }
-
+        return -1;
         
     }
 }
